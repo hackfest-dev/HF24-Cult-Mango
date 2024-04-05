@@ -3,8 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.11 (heltpro)" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="56284b26-7b6a-4b5e-9264-83f9a5b1e846" />
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (heltpro)" project-jdk-type="Python SDK" />
 </project>
