@@ -1,0 +1,9 @@
+{
+  "prompts": {
+    "system": "",
+    "summary": "",
+    "end": "",
+    "greeting": ""
+  },
+  "temperature": 0.7
+}
