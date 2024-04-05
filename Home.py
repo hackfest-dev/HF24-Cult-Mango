@@ -1,4 +1,3 @@
-import numpy as np
 import streamlit as st
 
 st.set_page_config(page_title="Helt Pro", page_icon="💪🏽")
@@ -30,5 +29,3 @@ else:
         st.image(image, caption="Uploaded Image", use_column_width=True)
 
 
-np_array = np.array(image)
-st.write(np_array)
