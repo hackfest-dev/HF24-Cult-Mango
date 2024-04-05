@@ -10,7 +10,6 @@ def ocr(image):
     response = requests.post(API_URL, headers=headers, data=data).json()
     return " ".join(r["generated_text"] for r in response)
 
-
 __all__ = [
     "ocr",
 ]
