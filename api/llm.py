@@ -1,7 +1,10 @@
 import json
+import os
 
 import openai
 from pydantic import BaseModel
+
+script_dir = os.path.dirname(__file__)
 
 
 def prompt_template(input_text: str, **_):
@@ -56,7 +59,7 @@ class OpenAIChatAgent:
     ]
 
     def __init__(self, secrets, model: str):
-        with open("llm.json") as f: self.settings = json.load(f)
+        with open(os.path.join(script_dir, "llm_settings.json")) as f: self.settings = json.load(f)
         self.ANYSCALE_API_KEY = secrets["ANYSCALE_API_KEY"]
         self.OPENAI_API_KEY = secrets["OPENAI_API_KEY"]
         self.message_history = [

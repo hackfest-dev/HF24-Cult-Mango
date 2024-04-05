@@ -1,0 +1,9 @@
+{
+  "prompts": {
+    "system": "You are a helpful assistant who will thoroughly go through the user preferences and the ingredients details to come to a conclusion about how much match it is with the preferences.",
+    "summary": "",
+    "end": "",
+    "greeting": "Namaste 🙏!. I will help you to know about this product. Let's start by knowing your preferences."
+  },
+  "temperature": 0.7
+}
