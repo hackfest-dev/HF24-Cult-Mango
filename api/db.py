@@ -13,8 +13,11 @@ class DBApi:
 
     @staticmethod
     def get_firestore(secrets):
-        cred = credentials.Certificate(secrets["FIREBASE_CREDENTIALS"])
-        firebase_admin.initialize_app(cred)
+        try:
+            cred = credentials.Certificate(secrets["FIREBASE_CREDENTIALS"])
+            firebase_admin.initialize_app(cred)
+        except ValueError:
+            pass
         return firestore.client()
 
     @staticmethod

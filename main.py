@@ -1,6 +1,6 @@
-import os
 import random
-import string
+
+from pydantic import BaseModel, Field
 
 from api.db import DBApi
 from api.llm import OpenAIChatAgent
@@ -44,7 +44,34 @@ class DBApiExt(DBApi):
         )
 
 
-if __name__ == '__main__':
-    db_api = DBApiExt(os.environ)
-    db_api.auth("admin", "admin")
-    db_api.remove_preference("vegan2")
+class OpenAIChatAgentExt(OpenAIChatAgent):
+    class Ingredients(BaseModel):
+        product_name: str = Field(..., description="The name of the product")
+        ingredients: list[str] = Field(..., description="The ingredients of the product")
+
+    def process_raw_ocr(self, raw_ocr: str) -> Ingredients:
+        response = self.client.chat.completions.create(
+            model="mistralai/Mistral-7B-Instruct-v0.1",
+            response_format={
+                "type": "json_object",
+                "schema": self.Ingredients.model_json_schema()
+            },
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an expert analyst designed to output JSON data. "
+                               "You will carefully read the raw OCR data and output the list of individual ingredients."
+                },
+                {
+                    "role": "user",
+                    "content": raw_ocr
+                },
+            ],
+            temperature=0.6,
+            # seed=1234,
+        )
+        response = response.choices[0].message.content
+        try:
+            return self.Ingredients.parse_raw(response)
+        except SyntaxError:
+            return self.Ingredients(product_name="Error", ingredients=[])

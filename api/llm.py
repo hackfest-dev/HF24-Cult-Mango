@@ -128,7 +128,7 @@ class OpenAIChatAgent:
 
     def get_summary(self, text: str, old_summary: str, **kwargs) -> "Summary":
         chat_completion = self.client.chat.completions.create(
-            model=self.model,
+            model="mistralai/Mistral-7B-Instruct-v0.1",
             response_format={  # noqa
                 "type": "json_object",
                 "schema": self.Summary.model_json_schema()
