@@ -7,3 +7,4 @@ requests~=2.31.0
 duckduckgo_search~=5.2.2
 pillow~=10.3.0
 transformers~=4.39.3
+easyocr~=1.7.1
