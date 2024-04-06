@@ -46,7 +46,7 @@ class DBApiExt(DBApi):
 
 class OpenAIChatAgentExt(OpenAIChatAgent):
     class Ingredients(BaseModel):
-        product_name: str = Field(..., description="The name of the product")
+        product_name: str = Field(..., description="The name of the product", max_length=16)
         ingredients: list[str] = Field(..., description="The ingredients of the product")
 
     def process_raw_ocr(self, raw_ocr: str) -> Ingredients:
