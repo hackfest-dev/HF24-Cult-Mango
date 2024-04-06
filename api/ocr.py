@@ -1,5 +1,8 @@
+import cv2
 import requests
 import re
+import easyocr
+import numpy as np
 
 API_URL = "https://api-inference.huggingface.co/models/jinhybr/OCR-Donut-CORD"
 headers = {"Authorization": "Bearer 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"}
@@ -11,10 +14,11 @@ def conv_xml(gen_text):
 
 
 def ocr(image):
-    image.save(".ocr.temp.png")
-    with open(".ocr.temp.png", "rb") as image_file: data = image_file.read()
-    response = requests.post(API_URL, headers=headers, data=data).json()[0]
-    return conv_xml(response["generated_text"])
+    # image = cv2.imread(image)
+    reader = easyocr.Reader(['en'])
+    blocks = reader.readtext(image)
+    extracted_text = ' '.join([text[1] for text in blocks])
+    return extracted_text
 
 
 __all__ = [
