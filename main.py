@@ -1,9 +1,11 @@
 import random
 
+import streamlit
 from pydantic import BaseModel, Field
 
 from api.db import DBApi
 from api.llm import OpenAIChatAgent
+from api.search import search
 from firebase_admin import firestore
 
 
@@ -32,16 +34,18 @@ class DBApiExt(DBApi):
         prefs = prefs[0].reference
         prefs.update({"preferences": firestore.ArrayRemove([preference])})
 
-    def insertion(self, query_txt: str, ingredient: str, tags: list[str]):
-        metadata = {'ingredient': ingredient}
-
-        for i in range(0, len(tags)): metadata[tags[i]] = True
-
+    def fetch(self, ingredient: str, **tags):
+        ingredient = ingredient.lower().strip()
+        info = self.chromadb.get(ids=ingredient, limit=1)["documents"]
+        if info: return info[0]
+        info = search(ingredient)
+        tags.update(ingredient=ingredient)
         self.chromadb.add(
-            ids="".join(random.choices(DBApiExt.CHARS, k=8)),
-            documents=query_txt,
-            metadatas=metadata
+            ids=ingredient,
+            documents=info,
+            metadatas=tags,
         )
+        return info
 
 
 class OpenAIChatAgentExt(OpenAIChatAgent):
@@ -68,7 +72,7 @@ class OpenAIChatAgentExt(OpenAIChatAgent):
                 },
             ],
             temperature=0.6,
-            # seed=1234,
+            seed=1234,
         )
         response = response.choices[0].message.content
         try:

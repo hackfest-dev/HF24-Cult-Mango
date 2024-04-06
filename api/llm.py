@@ -7,8 +7,16 @@ from pydantic import BaseModel
 script_dir = os.path.dirname(__file__)
 
 
-def prompt_template(input_text: str, **_):
-    return input_text
+def prompt_template(input_text: str, ingredients: list[str], **_):
+    return f"""
+    The user has provided the following ingredients:
+    ---
+    {", ".join(ingredients)}
+    ---
+    The user has provided the following text:
+    ---
+    {input_text}
+    """
 
 
 def summary_template(input_text: str, old_summary: str, agent_text: str, **_):

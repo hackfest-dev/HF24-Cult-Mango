@@ -1,7 +1,7 @@
 from duckduckgo_search import DDGS
 
 
-def search(element):
+def search(element) -> str:
     searches = [
         f'description of the food ingredient {element}',
         f'{element} is good for which type of people',

@@ -86,7 +86,9 @@ if image: st.image(image, caption="Uploaded Image", use_column_width=True)
 st.success(raw_ocr)
 with st.expander("Ingredients"):
     st.subheader(pro_ocr.product_name)
-    for ingredient in pro_ocr.ingredients: st.warning(ingredient)
+    for ingredient in pro_ocr.ingredients:
+        # st.warning(f"***{ingredient}***: {api.fetch(ingredient)}")
+        st.warning(ingredient)
 
 cnt1 = st.container()
 for message in st.session_state.agent.message_history[1:]:
@@ -104,6 +106,6 @@ with agent:
         st.session_state.disable_input = False
         with cnt1.chat_message("user"): st.write(prompt)
         with cnt1.chat_message("assistant"):
-            with st.spinner("Thinking..."): response = agent.chat(prompt)
+            with st.spinner("Thinking..."): response = agent.chat(prompt, ingredients=pro_ocr.ingredients)
             st.write_stream(message_stream(response))
         st.rerun()
