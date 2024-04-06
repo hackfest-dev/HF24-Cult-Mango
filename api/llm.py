@@ -7,15 +7,13 @@ from pydantic import BaseModel
 script_dir = os.path.dirname(__file__)
 
 
-def prompt_template(input_text: str, ingredients: list[str], **_):
+def prompt_template(input_text: str, **_):
     return f"""
-    The user has provided the following ingredients:
-    ---
-    {", ".join(ingredients)}
-    ---
-    The user has provided the following text:
+    the user has provided the following information:
     ---
     {input_text}
+    ---
+    give conclusion or ask for more information
     """
 
 
@@ -99,10 +97,16 @@ class OpenAIChatAgent:
             'content': content
         })
 
-    def chat(self, input_text: str, **kwargs) -> str:
+    def chat(self, input_text: str, ingredients: list[str], preferences: list[str], **kwargs) -> str:
         response = self.client.chat.completions.create(
             model=self.model,
-            messages=[*self.message_history, {"role": "user", "content": prompt_template(input_text, **kwargs)}],
+            messages=[
+                self.message_history[0],
+                {"role": "user", "content": f"I have a product with the following ingredients: {', '.join(ingredients)} "
+                                            f"and my preferences are: {', '.join(preferences)}"},
+                *self.message_history[1:],
+                {"role": "user", "content": prompt_template(input_text, **kwargs)}
+            ],
             temperature=self.settings["temperature"],
         )
         assistant_response = response.choices[0].message.content

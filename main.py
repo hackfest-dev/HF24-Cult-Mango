@@ -34,6 +34,12 @@ class DBApiExt(DBApi):
         prefs = prefs[0].reference
         prefs.update({"preferences": firestore.ArrayRemove([preference])})
 
+    def get_preferences(self):
+        prefs = self.preferences.where(
+            filter=firestore.FieldFilter(u'user', u'==', self.user.reference)
+        ).get()
+        return prefs[0].get("preferences") if prefs else []
+
     def fetch(self, ingredient: str, **tags):
         ingredient = ingredient.lower().strip()
         info = self.chromadb.get(ids=ingredient, limit=1)["documents"]
