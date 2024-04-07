@@ -23,7 +23,7 @@ By combining web scraping for data acquisition and LLMs for intelligent analysis
 - OCR: fine tuned donut OCR model
 - Vector DB: ChromaDb
 
-## Screenshots (see the ss folder)
+## Screenshots
 
 ![/WhatsApp Image 2024-04-07 at 06.57.59.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.57.59.jpeg)
 
@@ -36,3 +36,5 @@ By combining web scraping for data acquisition and LLMs for intelligent analysis
 ![WhatsApp Image 2024-04-07 at 06.58.00 (1).jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.00%20%281%29.jpeg)
 
 ![WhatsApp Image 2024-04-07 at 06.58.20.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.20.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.59.33.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.59.33.jpeg)
