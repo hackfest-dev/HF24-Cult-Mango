@@ -1,7 +1,8 @@
 # Health Guard
 ## Team CultMango, Team #20
 
-# https://healthguardpro.streamlit.app/
+# Try it out here: https://healthguardpro.streamlit.app/
+# Use the example product image in the folder `example images` to test the app and ask questions
 
 
 #### PS: In the contemporary fast-paced world, the usage of packaged goods has become ubiquitous. However, the complexity and obscurity of ingredient labels can lead to confusion, health risks, and dietary non-compliance for many consumers. Individuals with specific dietary preferences or allergies often find it challenging to navigate the myriad of chemical and derivative names listed on packaging, potentially leading to unintended consumption of harmful or undesired ingredients.
