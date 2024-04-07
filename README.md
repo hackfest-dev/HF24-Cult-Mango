@@ -37,4 +37,4 @@ By combining web scraping for data acquisition and LLMs for intelligent analysis
 
 ![WhatsApp Image 2024-04-07 at 06.58.20.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.20.jpeg)
 
-![WhatsApp Image 2024-04-07 at 06.59.33.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.59.33.jpeg)
+![Screenshot_7-4-2024_747_172.16.18.162.jpeg](ss%2FScreenshot_7-4-2024_747_172.16.18.162.jpeg)
