@@ -1,6 +1,8 @@
 # Health Guard
 ## Team CultMango, Team #20
 
+# https://healthguardpro.streamlit.app/
+
 
 #### PS: In the contemporary fast-paced world, the usage of packaged goods has become ubiquitous. However, the complexity and obscurity of ingredient labels can lead to confusion, health risks, and dietary non-compliance for many consumers. Individuals with specific dietary preferences or allergies often find it challenging to navigate the myriad of chemical and derivative names listed on packaging, potentially leading to unintended consumption of harmful or undesired ingredients.
 
@@ -21,5 +23,16 @@ By combining web scraping for data acquisition and LLMs for intelligent analysis
 - OCR: fine tuned donut OCR model
 - Vector DB: ChromaDb
 
+## Screenshots (see the ss folder)
 
-## Screenshots
+![/WhatsApp Image 2024-04-07 at 06.57.59.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.57.59.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.57.59 (1).jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.57.59%20%281%29.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.57.59 (2).jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.57.59%20%282%29.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.58.00.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.00.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.58.00 (1).jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.00%20%281%29.jpeg)
+
+![WhatsApp Image 2024-04-07 at 06.58.20.jpeg](ss%2FWhatsApp%20Image%202024-04-07%20at%2006.58.20.jpeg)
